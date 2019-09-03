@@ -22,18 +22,20 @@
                 context.Root = rootItem.ID.ToString();
                 VirtualMediaUsed = true;
                 tab.AddParameter("id", rootItem.ID.ToShortID().ToString().ToLowerInvariant());
-                Frame obj = (Frame)tab.Controls[0];
-                string value = HttpUtility.UrlEncode(rootItem.ID.ToString());
-                UrlString urlString = new UrlString(obj.SourceUri);
-                if (urlString.Parameters.AllKeys.Contains("id"))
-                {
-                    urlString.Parameters["id"] = value;
-                }
-                else
-                {
-                    urlString.Parameters.Add("id", value);
-                }
-                obj.SourceUri = urlString.ToString();
+                #region Removed code
+                //Frame obj = (Frame)tab.Controls[0];
+                //string value = HttpUtility.UrlEncode(rootItem.ID.ToString());
+                //UrlString urlString = new UrlString(obj.SourceUri);
+                //if (urlString.Parameters.AllKeys.Contains("id"))
+                //{
+                //    urlString.Parameters["id"] = value;
+                //}
+                //else
+                //{
+                //    urlString.Parameters.Add("id", value);
+                //}
+                //obj.SourceUri = urlString.ToString();
+                #endregion
             }
             return VirtualMediaUsed;
         }
